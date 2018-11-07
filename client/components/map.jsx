@@ -1,6 +1,6 @@
 import React from 'react';
 import MapContainer from './MapContainer.jsx'
-let GoogleMapsAPIKEY =  require('../../config.js').GoogleMapsAPIKEY;
+let { GoogleMapsAPIKEY } =  require('../../config.js')
 
 class Map extends React.Component {
   constructor(props) {

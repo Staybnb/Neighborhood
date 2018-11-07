@@ -4,7 +4,6 @@ import Landmarks from './Landmarks.jsx'
 import Map from './Map.jsx'
 import axios from 'axios';
 
-
 export default class Neighborhood extends React.Component {
   constructor(props) {
     super(props);
