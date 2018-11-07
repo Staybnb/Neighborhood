@@ -28,13 +28,14 @@ export default class Neighborhood extends React.Component {
     let queryString = window.location.search;
     let listingId = (queryString.slice(-3) * 1)
     this.setState({listingId: listingId})
-
+    console.log('listing id! ', listingId)
     // Get listing data
     axios.get(`/listingdata`, { params: 
       {id: listingId}
     })
 
     .then(({data}) => {
+      console.log('DATA /listingdata GET req', data)
       this.setState({
         listingId,
         hostFirstName: data[0].hostFirstName,

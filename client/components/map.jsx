@@ -10,7 +10,7 @@ class Map extends React.Component {
   render() {
     return (
       <div id="map-section">
-        <MapContainer 
+        {/* <MapContainer 
           isMarkerShown 
           lat={this.props.lat} 
           long={this.props.long} 
@@ -18,7 +18,7 @@ class Map extends React.Component {
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `350px`, width: `595px` }} />}
           mapElement={<div style={{ height: `100%` }} />} 
-        />
+        /> */}
         <div>Exact location information is provided after a booking is confirmed.</div>
       </div>
     )

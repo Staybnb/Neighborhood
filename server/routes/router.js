@@ -8,7 +8,7 @@ router.get('/listingdata', controller.getListingData)
 router.get('/neighborhooddata', controller.getNeighbData)
 router.get('/landmarkdata', controller.getLandmarkData)
 router.get('/app.js', (req, res) => {
-  res.send('public/app.js');
+  res.redirect('public/app.js');
 })
 router.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/index.html'));

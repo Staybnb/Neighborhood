@@ -3,19 +3,9 @@ const pg = require('pg');
 const hstore = require('pg-hstore');
 // const dbpw = require('../config.js').AmazonDBpw;
 
-const db = new Sequelize('neighborhood', 'sdc', 'hrnyc18',
+const db = new Sequelize('neighborhood', 'root', 'hrnyc18',
   {
-    host: 'localhost',
-    port: 5432,
     dialect: 'postgres',
-    operatorsAliases: false,
-
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
   } 
 )
 
