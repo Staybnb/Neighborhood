@@ -6,13 +6,16 @@ const Neighborhood = models.neighborhoodSchema;
 const Landmark = models.landmarkSchema;
 
 // Import arrays of data
-const listings = generatedListings.listingsData;
+
+// const listings = generatedListings.listingsData;
+const scaleListingsArrays = generatedListings.scaleListingsArray;
 const neighbs = require('./dummyData/neighbsData.js').neighbsArray;
 const landmarks = generatedLandmarks.landmarksData;
 
+
 Listing.sync({force: true})
 .then(() => {
-  Listing.bulkCreate(listings)
+  Listing.bulkCreate(scaleListingsArrays);
 })
 .catch((err) => {
   console.error(err);

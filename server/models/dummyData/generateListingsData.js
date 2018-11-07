@@ -27,12 +27,13 @@ for (let i = 0; i < points.length; i++) {
 
 ////// Add the points onto the listingsData from Mockaroo //////
 
-let listingsData = require('./listingsData_no_coords').listingsArray;
+// let listingsData = require('./listingsData_no_coords').listingsArray;
+let { scaleListingsArray } = require('./scaleData.js');
 
-listingsData.forEach((listing, index) => {
+scaleListingsArray.forEach((listing, index) => {
   listing.listingLat = listingsCoords[index][0];
   listing.listingLong = listingsCoords[index][1];
 })
 
-
-exports.listingsData = listingsData;
+// exports.listingsData = listingsData;
+exports.scaleListingsArray = scaleListingsArray;
