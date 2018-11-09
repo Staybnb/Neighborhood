@@ -30,32 +30,20 @@ for (let i = 0; i < points.length; i++) {
 // let listingsData = require('./listingsData_no_coords').listingsArray;
 // let { scaleListingsArray } = require('./scaleData.js');
 
+const asnyc = require('async');
 const faker = require('faker');
 var scaleListingsArray = [];
 
-// for (var i = 1; i < 100; i++) {
-//   setTimeout(() => {
-    for (var j = 1; j < 100000; j++) {
-
-      var listing = {
-        "hostFirstName": faker.name.firstName(),
-        "neighbId": Math.floor(Math.random() * 10) + 1,
-        "neighbDesc": faker.lorem.sentence()
-      }
-
-      listing.listingLat = listingsCoords[j][0];
-      listing.listingLong = listingsCoords[j][1];
-    
-      scaleListingsArray.push(listing)
-
-    }
-//   }, 5000)
-// }
-
-// scaleListingsArray.forEach((listing, index) => {
-//   listing.listingLat = listingsCoords[index][0];
-//   listing.listingLong = listingsCoords[index][1];
-// })
+for (var j = 0; j < 100000; j++) {
+  var listing = {
+    "hostFirstName": faker.name.firstName(),
+    "neighbId": Math.floor(Math.random() * 10) + 1,
+    "neighbDesc": faker.lorem.sentence(),
+    "listingLat": listingsCoords[j][0],
+    "listingLong": listingsCoords[j][1]
+  }
+  scaleListingsArray.push(listing)
+}
 
 // exports.listingsData = listingsData;
 exports.scaleListingsArray = scaleListingsArray;
