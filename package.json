@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "node ./server/server.js",
-    "seed": "node ./server/models/loadData.js",
+    "seed-psql": "node ./server/models/loadDataPSQL.js",
+    "seed-mdb": "node ./server/models/loadDataMDB.js",
     "react-dev": "webpack -d --watch",
     "react-prod": "webpack -p",
     "start-dev": "nodemon ./server/server.js",

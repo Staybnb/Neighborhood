@@ -1,9 +1,10 @@
 const async = require('async');
 const models = require('./models.js');
-const faker = require('faker');
 var { fork } = require('child_process');
+const { generateDummyArray } = require('./dummyData/generateListingsArray')
 const generatedLandmarks = require('./dummyData/generateLandmarksData.js');
 const neighbs = require('./dummyData/neighbsData.js').neighbsArray;
+// const listingsCoords = require('./dummyData/generateListingsCoords.js');
 // let listingsData = require('./listingsData_no_coords').listingsArray;
 const Listing = models.listingSchema;
 const Neighborhood = models.neighborhoodSchema;
@@ -13,28 +14,6 @@ const landmarks = generatedLandmarks.landmarksData;
 var totalAdded = 0;
 
 function insertAsync(callback) {
-
-  function generateDummyArray() {
-    return new Promise((resolve, reject) => {
-      var scaleListingsArray = [];
-      for (var j = 0; j < 200000; j++) {
-        var listing = {
-          "hostFirstName": faker.name.firstName(),
-          "neighbId": Math.floor(Math.random() * 15) + 1,
-          "neighbDesc": faker.lorem.sentence(),
-          "gettingAroundDesc": faker.lorem.sentence()
-          // "listingLat": listingsCoords[j][0],
-          // "listingLong": listingsCoords[j][1]
-        }
-        scaleListingsArray.push(listing)
-      }
-      if (scaleListingsArray.length !== 200000) {
-        reject();
-      } else {
-        resolve(scaleListingsArray);
-      }
-    })
-  }
     
   function insert(array) {
     return new Promise((resolve, reject) => {
@@ -52,11 +31,15 @@ function insertAsync(callback) {
   }
 
   async function initialize() {
-    for (var i = 0; i < 2; i++) {
+    console.log('****** Begin Data Injection ******')
+    var begin = Date.now();
+    for (var i = 0; i < 50; i++) {
       var listingArray = await generateDummyArray()
       await insert(listingArray);
     }
-    callback();
+    var end = Date.now();
+    var timeSpent = ((end - begin) / 1000) / 60;
+    callback(timeSpent);
   }
   initialize(); 
 }
@@ -64,8 +47,9 @@ function insertAsync(callback) {
 // Sequelize models insertion:
 Listing.sync({force: true})
 .then(() => {
-  insertAsync(() => {
-    console.log('Listing table populated with ' + totalAdded + ' records');
+  insertAsync((time) => {
+    console.log('Listing table populated with ' + totalAdded + ' records in ' + time + ' minutes');
+    console.log('****** End Data Injection ******');
   });
 })
 .catch((err) => {
