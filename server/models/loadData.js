@@ -31,7 +31,7 @@ var polygon = turf.polygon([[
   [-.2451, 51.5194]
 ]]);
 
-let numberOfPoints = 10000000;
+// let numberOfPoints = 10000000;
 // var points = randomPointsOnPolygon(numberOfPoints, polygon);
 
 let listingsCoords = [];
@@ -50,11 +50,11 @@ let listingsCoords = [];
 const faker = require('faker');
 var { fork } = require('child_process');
 
-function insertAsyncAwait() {
+function insertAsync(callback) {
   var totalAdded = 0;
   function generate() {
     var scaleListingsArray = [];
-    for (var j = 0; j < 100000; j++) {
+    for (var j = 0; j < 200000; j++) {
       var listing = {
         "hostFirstName": faker.name.firstName(),
         "neighbId": Math.floor(Math.random() * 10) + 1,
@@ -68,36 +68,41 @@ function insertAsyncAwait() {
   }
     
   function insert(array) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       Listing.bulkCreate(array)
         .then(() => {
           console.log('RAM usage:', process.memoryUsage().heapUsed/1000000);
-          totalAdded += 100000;
-          console.log('Current total records: ', totalAdded);
+          totalAdded += 200000;
+          console.log('Current total records:', totalAdded);
           resolve();
+        })
+        .catch((error) => {
+          reject(error);
         })
     })
   }
 
   async function initialize() {
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 2; i++) {
       var listingArray = generate()
       await insert(listingArray);
-      
     }
+    callback();
   }
-
   initialize(); 
 }
 
 Listing.sync({force: true})
 .then(() => {
-  insertAsyncAwait();
+  insertAsync(() => {
+    console.log('Listing table successfully populated');
+  });
 })
 .catch((err) => {
   console.error(err);
 })
 
+console.log('after or before?');
 
 Neighborhood.sync({force: true})
 .then(() => {
