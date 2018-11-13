@@ -7,18 +7,18 @@ const { Neighborhood } = require('./../../database/mongoDB/index.js');
 const { Landmark } = require('./../../database/mongoDB/index.js');
 const faker = require('faker');
 
-var totalAdded = 0;
-
 var neighbsArray = [
   'Hackney', 'Camden Town', 'Marylebone', 'Greenwich', 'Hackney', 'Brixton', 'Islington', 'Soho', 'Paddington', 'Chelsea', 'Kensington', 'Mayfair'
 ]
 
+var totalAdded = 0;
+
 function generateDummyArray(i) {
   return new Promise((resolve, reject) => {
     var scaleListingsArray = [];
-    for (var j = 0; j < 10; j++) {
+    for (var j = 0; j < 10000; j++) {
       var listing = new Listing({
-        "listingId": j,
+        "listingId": Math.floor(Math.random() * 10) * j,
         "hostFirstName": faker.name.firstName(),
         "city": 'London',
         "region": 'England',
@@ -38,7 +38,6 @@ function generateDummyArray(i) {
       })
       scaleListingsArray.push(listing)
     }
-    console.log('LISTINGS ARRAY BEFORE RESOLVE', scaleListingsArray)
     resolve(scaleListingsArray);
   })
 }
@@ -49,9 +48,12 @@ function insertAsyncListing(callback) {
     return new Promise((resolve, reject) => {
       Listing.insertMany(array, (err, docs) => {
         if (err) {
-          reject(console.log('EROROROROROR', err));
+          reject(console.log('ERROR @ insertMany:', err));
         } else {
-          resolve('&&&&&&&&&&&&&&&&&&10 Records successfully added');
+          console.log('RAM usage:', process.memoryUsage().heapUsed/1000000, 'MBs');
+          totalAdded += 10000;
+          console.log('Current total records:', totalAdded);
+          resolve();
         }
       })
     })
@@ -60,9 +62,8 @@ function insertAsyncListing(callback) {
   async function initialize() {
     console.log('****** Begin Data Injection ******')
     var begin = Date.now();
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 100; i++) {
       var listingArray = await generateDummyArray(i)
-      console.log('LISTINGS AFTER RESOLVE:', listingArray)
       await insertRecs(listingArray);
     }
     var end = Date.now();
@@ -72,7 +73,10 @@ function insertAsyncListing(callback) {
   initialize(); 
 }
 
-insertAsyncListing();
+insertAsyncListing((time) => {
+  console.log('Listing table populated with ' + totalAdded + ' records in ' + time + ' minutes');
+  console.log('****** End Data Injection ******');
+});
 
 // // Insert Landmarks
 // Landmark.collection.insert(generatedLandmarks)
