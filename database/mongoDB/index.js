@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/neighborhood');
+mongoose.set('useCreateIndex', true);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -9,22 +10,16 @@ db.once('open', function() {
 
 // Define schemas + models:
 var listingsSchema = new mongoose.Schema({
-  _id: {type: String, required: true},
+  listingId: {type: Number, required: true},
   hostFirstName: String,
-  neighbId: Number,
+  city: String,
+  region: String,
+  country: String,
+  neighb: String,
   listingLat: Number,
   listingLong: Number,
   neighbDesc: String,
-  gettingAroundDesc: String
-});
-var Listing = mongoose.model('Listing', listingsSchema);
-
-var neighborhoodsSchema = new mongoose.Schema({
-  id: Number,
-  cityString: String,
-  regionString: String,
-  country: String,
-  neighbName: String,
+  gettingAroundDesc: String,
   feature1: String,
   feature2: String,
   feature3: String,
@@ -32,8 +27,20 @@ var neighborhoodsSchema = new mongoose.Schema({
   feature5: String,
   feature6: String,
   feature7: String
-})
-var Neighborhood = mongoose.model('Neighborhood', neighborhoodsSchema)
+});
+var Listing = mongoose.model('Listing', listingsSchema);
+
+// db.createCollection('counters');
+// db.counters.insert({_id: 'productid', sequence_value: 0});
+
+// function getNextSequenceValue(sequenceName){
+//   var sequenceDocument = db.counters.findAndModify({
+//   query:{_id: sequenceName },
+//   update: {$inc:{sequence_value:1}},
+//   new:true
+//     });
+// return sequenceDocument.sequence_value;
+// }
 
 var landmarksSchema = new mongoose.Schema({
   id: Number,
@@ -46,6 +53,7 @@ var Landmark = mongoose.model('Landmark', landmarksSchema)
 
 module.exports.db = db;
 module.exports.Listing = Listing;
-module.exports.Neighborhood = Neighborhood;
+// module.exports.Neighborhood = Neighborhood;
 module.exports.Landmark = Landmark;
+// module.exports.getNextSequenceValue = getNextSequenceValue;
 

@@ -1,9 +1,11 @@
 const faker = require('faker');
 
+////////// POSTGRES //////////
+
 function generateDummyArray() {
   return new Promise((resolve, reject) => {
     var scaleListingsArray = [];
-    for (var j = 0; j < 100000; j++) {
+    for (var j = 0; j < 10; j++) {
       var listing = {
         "hostFirstName": faker.name.firstName(),
         "neighbId": Math.floor(Math.random() * 15) + 1,
@@ -14,7 +16,7 @@ function generateDummyArray() {
       }
       scaleListingsArray.push(listing)
     }
-    if (scaleListingsArray.length !== 100000) {
+    if (scaleListingsArray.length !== 10000) {
       reject();
     } else {
       resolve(scaleListingsArray);
