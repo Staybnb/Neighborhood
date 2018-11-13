@@ -1,5 +1,4 @@
 const async = require('async');
-// const { generateDummyArray } = require('./dummyData/generateListingsArray')
 const generatedLandmarks = require('./dummyData/generateLandmarksData.js');
 const { db } = require('./../../database/mongoDB/index.js');
 const { Listing } = require('./../../database/mongoDB/index.js');
@@ -62,7 +61,7 @@ function insertAsyncListing(callback) {
   async function initialize() {
     console.log('****** Begin Data Injection ******')
     var begin = Date.now();
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 1000; i++) {
       var listingArray = await generateDummyArray(i)
       await insertRecs(listingArray);
     }
