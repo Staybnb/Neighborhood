@@ -11,13 +11,13 @@ const landmarks = generatedLandmarks.landmarksData;
 
 var totalAdded = 0;
 
-function insertAsync(callback) {
+const insertAsync = (callback) => {
     
-  function insert(array) {
+  const insert = (array) => {
     return new Promise((resolve, reject) => {
       Listing.bulkCreate(array)
         .then(() => {
-          console.log('RAM usage:', process.memoryUsage().heapUsed/1000000);
+          console.log('RAM usage:', process.memoryUsage().heapUsed/1000000, 'MBs');
           totalAdded += 10000;
           console.log('Current total records:', totalAdded);
           resolve();
@@ -31,7 +31,7 @@ function insertAsync(callback) {
   async function initialize() {
     console.log('****** Begin Data Injection ******')
     var begin = Date.now();
-    for (var i = 0; i < 1000; i++) {
+    for (let i = 0; i < 1000; i++) {
       var listingArray = await generateDummyArray()
       await insert(listingArray);
     }
