@@ -1,11 +1,17 @@
 const Sequelize = require('sequelize');
 const pg = require('pg');
-const hstore = require('pg-hstore');
-const dbpw = require('../config.js').AmazonDBpw;
+//// AWS database user and pw:
+// const dbUser = require('../config.js').AmazonDBuser;
+// const dbpw = require('../config.js').AmazonDBpw;
+// const host = require('../config.js').AmazonHost;
+//// Local database user and pw:
+const dbUser = require('../config.js').localDBUser;
+const dbpw = require('../config.js').localDBpw;
+const host = 'localhost';
 
-const db = new Sequelize('Neighborhood', 'neighborhood', dbpw, 
+const db = new Sequelize('Neighborhood', dbUser, dbpw, 
   {
-    host: 'neighborhood-staybnb.cksae9ebsoyz.us-east-2.rds.amazonaws.com',
+    host: host,
     port: 5432,
     dialect: 'postgres',
     operatorsAliases: false,
