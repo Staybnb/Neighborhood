@@ -28,10 +28,12 @@
   },
   "homepage": "https://github.com/Staybnb/Neighborhood#readme",
   "devDependencies": {
+    "css-loader": "^1.0.1",
     "jest": "^22.3.0",
     "morgan": "^1.9.0",
     "puppeteer": "^1.9.0",
     "random-points-on-polygon": "0.0.4",
+    "style-loader": "^0.23.1",
     "turf": "^3.0.14"
   },
   "dependencies": {
@@ -51,6 +53,7 @@
     "pg-hstore": "^2.3.2",
     "pm2": "^3.2.2",
     "react": "^16.2.0",
+    "react-bootstrap-table-next": "^1.4.1",
     "react-dom": "^16.2.0",
     "react-google-maps": "^9.4.5",
     "sequelize": "^4.41.0",

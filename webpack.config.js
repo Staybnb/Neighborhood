@@ -5,7 +5,14 @@ module.exports = {
   context: __dirname + '/client',
   entry: './index.js',
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -13,8 +20,8 @@ module.exports = {
         query: {
           presets: ['react', 'es2015', 'env']
         },
-      },
-    ],
+      }
+    ]
   }, 
   output: {
     path: __dirname + '/public',
