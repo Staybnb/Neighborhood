@@ -34,10 +34,10 @@ class Landmarks extends React.Component {
           <BootstrapTable 
             keyField='landmarkName' 
             bordered={false}
-            striped
             hover 
             data={this.props.nearbyLandmarks} 
             columns={columns}
+            headerClasses="distance-table-header"
           />
         </div>
       </div>
