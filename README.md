@@ -9,8 +9,10 @@ This module displays information about the neighborhood of a specific Staybnb li
   - https://github.com/Staybnb/Reviews
 
 ## Development
-The database `seed` script will create a local PostgreSQL database that is configured in `database/index.js`. It relies upon a `config.js` file that you must create at the root level of the project with your PostgreSQL database's username (`localDBUser`) and password (`localDBpw`).
+### Setting up `config.js`
+The database `seed` script will create a local PostgreSQL database that is configured in `database/index.js`. It relies upon a `config.js` file that you must create at the root level of the project with your PostgreSQL database's username (`localDBUser`) and password (`localDBpw`). The `config.js` file should also have a Google Maps API Key (`GoogleMapsAPIKEY`).
 
+### Launching the application locally
 From within the root directory:
 
 ```sh
