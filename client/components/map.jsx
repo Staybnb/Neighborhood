@@ -10,6 +10,7 @@ class Map extends React.Component {
   render() {
     return (
       <div id="map-section">
+        <p>THIS IS WHERE MY BUTTON GOES...</p>
         <MapContainer 
           isMarkerShown 
           lat={this.props.lat} 

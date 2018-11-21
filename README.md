@@ -31,7 +31,7 @@ npm run seed
 npm start
 ```
 
-Then access the application at: http://localhost:3001
+Then access the application at: `http://localhost:3001/listing?id=9873###` replacing `###` with any three-digit number from 1 to 100 to correspond the listing ID. For example, listing 27 would be http://localhost:3001/listing?id=9873027.
 
 ## Data Schema
 This module's data is stored in a PostgreSQL database. There are three tables: 
