@@ -28,3 +28,8 @@ body#neighbApp {
 table {
   max-width: 595px !important;
 }
+
+#transitCheckbox {
+  margin-left: 12px;
+  margin-right: 8px;
+}

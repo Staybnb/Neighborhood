@@ -1,18 +1,36 @@
 import React from 'react';
-import MapContainer from './MapContainer.jsx'
+import MapContainer from './MapContainer.jsx';
+import MapContainerV2 from './MapContainerV2.jsx';
+import TransitCheckbox from './TransitCheckbox.jsx';
 let GoogleMapsAPIKEY =  require('../../config.js').GoogleMapsAPIKEY;
 
 class Map extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      shouldShowTransit: false
+    }
+    this.toggleTransit = this.toggleTransit.bind(this);
+  }
+
+  toggleTransit() {
+    this.setState({
+        shouldShowTransit: !this.state.shouldShowTransit
+    })
   }
 
   render() {
     return (
       <div id="map-section">
-        <p>THIS IS WHERE MY BUTTON GOES...</p>
+        <TransitCheckbox 
+          shouldShowTransit={this.state.shouldShowTransit} 
+          toggleTransit={this.toggleTransit}
+        />
+        <MapContainerV2
+        />
         <MapContainer 
           isMarkerShown 
+          shouldShowTransit={this.state.shouldShowTransit} 
           lat={this.props.lat} 
           long={this.props.long} 
           googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${GoogleMapsAPIKEY}&v=3.exp&libraries=geometry,drawing,places`}
