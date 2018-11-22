@@ -1,5 +1,5 @@
 import React from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, Circle, BicyclingLayer } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, Circle, BicyclingLayer } from "react-google-maps";
 
 // const transit = {
 //   "featureType": "transit.line",

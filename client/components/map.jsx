@@ -27,8 +27,10 @@ class Map extends React.Component {
           toggleTransit={this.toggleTransit}
         />
         <MapContainerV2
+          lat={this.props.lat} 
+          long={this.props.long} 
         />
-        <MapContainer 
+        {/* <MapContainer 
           isMarkerShown 
           shouldShowTransit={this.state.shouldShowTransit} 
           lat={this.props.lat} 
@@ -37,7 +39,7 @@ class Map extends React.Component {
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `350px`, width: `595px` }} />}
           mapElement={<div style={{ height: `100%` }} />} 
-        />
+        /> */}
         <div>Exact location information is provided after a booking is confirmed.</div>
       </div>
     )
