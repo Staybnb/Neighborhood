@@ -20,7 +20,7 @@ class MapContainerV2 extends React.Component {
           bootstrapURLKeys={{key: GoogleMapsAPIKEY}}
           center={this.props.center}
           zoom={12}
-          layerTypes={['TransitLayer']}
+          layerTypes={this.props.shouldShowTransit ? ['TransitLayer'] : []}
         >
           <AnyReactComponent
             lat={this.props.lat}

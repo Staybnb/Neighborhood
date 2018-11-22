@@ -29,6 +29,7 @@ class Map extends React.Component {
         <MapContainerV2
           lat={this.props.lat} 
           long={this.props.long} 
+          shouldShowTransit={this.state.shouldShowTransit} 
         />
         {/* <MapContainer 
           isMarkerShown 
