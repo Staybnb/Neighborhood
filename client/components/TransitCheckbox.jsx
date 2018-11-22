@@ -10,10 +10,10 @@ class TransitCheckbox extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <input type="checkbox" onChange={this.props.toggleTransit} id="transitCheckbox"/> 
+      <div id="transit-checkbox">
+        <input type="checkbox" onChange={this.props.toggleTransit} className="checkbox"/> 
         <label htmlFor="ShowTransit">Show Transit</label>
-      </React.Fragment>
+      </div>
     )
   }
 }

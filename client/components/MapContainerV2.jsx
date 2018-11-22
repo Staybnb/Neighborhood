@@ -5,6 +5,19 @@ let GoogleMapsAPIKEY =  require('../../config.js').GoogleMapsAPIKEY;
 
 const AnyReactComponent = ({ text }) => <div>{ text }</div>;
 
+const createMapOptions = () => {
+  return (
+    {
+      minZoom: 3,
+      fullscreenControl: false,
+      zoomControl: false,
+      streetViewControl: false,
+      scaleControl: true,
+      mapTypeControl: false
+    }
+  )
+}
+
 class MapContainerV2 extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +34,7 @@ class MapContainerV2 extends React.Component {
           center={this.props.center}
           zoom={12}
           layerTypes={this.props.shouldShowTransit ? ['TransitLayer'] : []}
+          options={createMapOptions}
         >
           <AnyReactComponent
             lat={this.props.lat}

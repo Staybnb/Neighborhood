@@ -25,11 +25,9 @@ const MapContainer = withScriptjs(withGoogleMap((props) =>
       streetViewControl: false,
       scaleControl: true,
       mapTypeControl: false
-      // styles: [...transit]
     }}
   >
     {props.isMarkerShown && <Marker position={{lat: props.lat, lng: props.long}}/>}
-    {/* {props.shouldShowTransit &&  addTransitLayer.setMap(map)} */}
     <BicyclingLayer autoUpdate />
   </GoogleMap>
 ))

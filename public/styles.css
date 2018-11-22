@@ -29,7 +29,25 @@ table {
   max-width: 595px !important;
 }
 
-#transitCheckbox {
-  margin-left: 12px;
+.checkbox {
   margin-right: 8px;
+}
+
+#transit-checkbox label {
+  margin-bottom: 0px;
+}
+
+#map-section {
+  position: relative;
+  width: 595px;
+  top: 1px;
+}
+
+#transit-checkbox {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 5;
+  padding: 10px;
+  background-color: rgba(211, 211, 211, 0.7);
 }
