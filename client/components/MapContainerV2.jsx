@@ -3,7 +3,9 @@ import GoogleMapReact from 'google-map-react';
 let GoogleMapsAPIKEY =  require('../../config.js').GoogleMapsAPIKEY;
 
 
-const AnyReactComponent = ({ text }) => <div>{ text }</div>;
+const Marker = () => {
+  return <div className="marker"></div>
+}
 
 const createMapOptions = () => {
   return (
@@ -31,15 +33,15 @@ class MapContainerV2 extends React.Component {
       <div style={{ height: `340px`, width: `595px` }} className="map">
         <GoogleMapReact
           bootstrapURLKeys={{key: GoogleMapsAPIKEY}}
+          defaultCenter={this.props.center}
           center={this.props.center}
           zoom={12}
           layerTypes={this.props.shouldShowTransit ? ['TransitLayer'] : []}
           options={createMapOptions}
         >
-          <AnyReactComponent
+          <Marker
             lat={this.props.lat}
             lng={this.props.long}
-            text={'Hello'} 
           />
         </GoogleMapReact>
       </div>
