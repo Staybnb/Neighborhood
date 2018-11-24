@@ -1,4 +1,6 @@
-body {
+body#neighbApp {
+  margin: 10px;
+  max-width: 700px;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   line-height: 22px;
@@ -8,7 +10,7 @@ body {
   background-color: #fff;
 }
 
-a {
+#neighbApp a {
   color: #008489;
   font-weight: bold;
   text-decoration: none;
@@ -17,6 +19,48 @@ a {
   text-decoration-color: initial;
 }
 
-a:hover {
+#neighbApp a:hover {
   text-decoration: underline;
+}
+
+.distance-table-header {
+  visibility: collapse
+}
+
+table {
+  max-width: 595px !important;
+}
+
+.checkbox {
+  margin-right: 8px;
+}
+
+#transit-checkbox label {
+  margin-bottom: 0px;
+}
+
+#map-section {
+  position: relative;
+  width: 595px;
+  top: 1px;
+}
+
+#transit-checkbox {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 5;
+  padding: 10px;
+  background-color: rgba(211, 211, 211, 0.7);
+}
+
+.marker {
+  width: 46px;
+  height: 46px; 
+  border-radius: 50% 50% 50% 50%;
+  background: rgba(0, 132, 137, 0.5);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
 }
