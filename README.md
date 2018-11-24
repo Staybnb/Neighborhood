@@ -1,6 +1,6 @@
 # Neighborhood
 This module displays information about the neighborhood of a specific Staybnb listing. 
-![Demo](https://github.com/Staybnb/Neighborhood/blob/master/Demo_Neighborhood_Staybnb_compressed.gif | width=400)
+![Demo](https://github.com/Staybnb/Neighborhood/blob/master/Demo_Neighborhood_Staybnb_compressed.gif) <!-- .element height="50%" width="50%" -->
 
 ## Related Projects
 
