@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+neighborhood-ec2-keypair.pem
+**/*.pem
+config.js
+dockerenv.txt

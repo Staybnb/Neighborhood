@@ -3,6 +3,7 @@
 
 ## API Key ##
 config.js
+dockerenv.txt
 
 ## NPM ##
 npm
