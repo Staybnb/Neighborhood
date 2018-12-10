@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 const pg = require('pg');
 //// AWS database user and pw:
-const dbUser = require('../config.js').AmazonDBuser;
-const dbpw = require('../config.js').AmazonDBpw;
-const host = require('../config.js').AmazonHost;
+const dbUser = process.env.AmazonDBuser || require('../config.js').AmazonDBuser;
+const dbpw = process.env.AmazonDBpw || require('../config.js').AmazonDBpw;
+const host = process.env.AmazonHost || require('../config.js').AmazonHost;
 //// Local database user and pw:
 // const dbUser = require('../config.js').localDBUser;
 // const dbpw = require('../config.js').localDBpw;
