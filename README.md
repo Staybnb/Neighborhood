@@ -1,5 +1,5 @@
 # Neighborhood
-This module displays information about the neighborhood of a specific Staybnb listing. To visit a page of the deployed Neighborhood service, go **[here](http://18.218.40.198/listings?id=9873023)**.
+This module displays information about the neighborhood of a specific Staybnb listing. To visit a page of the deployed Neighborhood service, go **[here](http://3.17.24.254/listings?id=9873023)**.
 
 <img src="https://github.com/Staybnb/Neighborhood/blob/master/Demo_Neighborhood_Staybnb_compressed.gif" width="65%" height="65%">
 
