@@ -9,7 +9,7 @@ const host = process.env.AmazonHost || require('../config.js').AmazonHost;
 // const dbpw = require('../config.js').localDBpw;
 // const host = 'localhost';
 
-const db = new Sequelize('Neighborhood', dbUser, dbpw, 
+const db = new Sequelize('neighborhood', dbUser, dbpw, 
   {
     host: host,
     port: 5432,
