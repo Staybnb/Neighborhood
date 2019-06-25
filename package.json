@@ -29,9 +29,9 @@
   "homepage": "https://github.com/Staybnb/Neighborhood#readme",
   "devDependencies": {
     "css-loader": "^1.0.1",
-    "jest": "^22.3.0",
+    "jest": "^24.8.0",
     "morgan": "^1.9.0",
-    "puppeteer": "^1.9.0",
+    "puppeteer": "^1.18.0",
     "random-points-on-polygon": "0.0.4",
     "style-loader": "^0.23.1",
     "turf": "^3.0.14"
@@ -39,7 +39,7 @@
   "dependencies": {
     "@turf/distance": "^6.0.1",
     "@turf/turf": "^5.1.6",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -51,12 +51,12 @@
     "google-map-react": "^1.1.1",
     "path": "^0.12.7",
     "pg": "^7.5.0",
-    "pm2": "^3.2.2",
+    "pm2": "^3.5.1",
     "react": "^16.2.0",
     "react-bootstrap-table-next": "^1.4.1",
     "react-dom": "^16.2.0",
     "react-pure-render": "^1.0.2",
-    "sequelize": "^4.41.0",
+    "sequelize": "^6.0.0",
     "webpack": "^3.11.0",
     "webpack-cli": "^3.1.2"
   }
